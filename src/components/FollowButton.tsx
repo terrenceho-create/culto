@@ -10,6 +10,7 @@ interface Props {
   initialIsFollowing: boolean
   /** Called after a successful toggle so parent can update follower count */
   onFollowChange?: (delta: 1 | -1) => void
+  className?: string
 }
 
 export default function FollowButton({
@@ -17,6 +18,7 @@ export default function FollowButton({
   targetUserId,
   initialIsFollowing,
   onFollowChange,
+  className = '',
 }: Props) {
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
   const [loading, setLoading] = useState(false)
@@ -60,11 +62,11 @@ export default function FollowButton({
       onClick={toggle}
       disabled={loading}
       className={`font-mono text-xs font-bold tracking-wider uppercase px-4 py-1.5 border
-        transition-colors disabled:opacity-40 flex-shrink-0
+        transition-colors disabled:opacity-40
         ${isFollowing
           ? 'border-ink bg-ink text-cream hover:bg-cream hover:text-ink'
           : 'border-ink bg-cream text-ink hover:bg-ink hover:text-cream'
-        }`}
+        } ${className}`}
     >
       {isFollowing ? 'Following' : 'Follow'}
     </button>

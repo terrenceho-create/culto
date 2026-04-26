@@ -29,9 +29,9 @@ export default function ProfileStatsFollowArea({
   }
 
   return (
-    <div className="flex items-center justify-between gap-3 mt-3">
+    <div className="mt-3 flex flex-col gap-2 md:flex-row md:items-center md:justify-between md:gap-3">
       {/* Stats */}
-      <div className="flex gap-5">
+      <div className="flex gap-5 flex-wrap">
         <a
           href={`/profile/${targetUsername}/followers`}
           className="font-mono text-xs text-ink-muted hover:text-ink transition-colors"
@@ -49,12 +49,13 @@ export default function ProfileStatsFollowArea({
         </span>
       </div>
 
-      {/* Follow / Unfollow button */}
+      {/* Follow / Unfollow button — full width on mobile, auto on desktop */}
       <FollowButton
         currentUserId={currentUserId}
         targetUserId={targetUserId}
         initialIsFollowing={initialIsFollowing}
         onFollowChange={handleFollowChange}
+        className="w-full md:w-auto"
       />
     </div>
   )
