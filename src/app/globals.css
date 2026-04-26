@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --cream: #F5F0E8;
+  --ink: #1A1A1A;
+  --ink-muted: #555555;
+  --ink-faint: #999999;
+  --border: #D4CFC5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--cream);
+  color: var(--ink);
+}
+
+body {
+  font-family: 'Space Mono', 'Courier New', Courier, monospace;
+  background-color: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-faint);
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+@layer components {
+  .culto-input {
+    @apply w-full bg-cream border border-ink font-mono text-sm text-ink
+           px-3 py-2 outline-none placeholder:text-ink-faint
+           focus:ring-1 focus:ring-ink transition-colors;
+  }
+
+  .culto-btn {
+    @apply font-mono text-sm font-bold tracking-wider uppercase
+           px-6 py-2 border border-ink bg-ink text-cream
+           hover:bg-cream hover:text-ink transition-colors;
+  }
+
+  .culto-btn-ghost {
+    @apply font-mono text-sm font-bold tracking-wider uppercase
+           px-6 py-2 border border-ink bg-cream text-ink
+           hover:bg-ink hover:text-cream transition-colors;
+  }
+
+  .culto-link {
+    @apply underline underline-offset-2 hover:opacity-60 transition-opacity;
+  }
+
+  .culto-card {
+    @apply border border-border bg-cream;
+  }
+
+  .grid-container {
+    @apply max-w-5xl mx-auto px-6;
+  }
+}
