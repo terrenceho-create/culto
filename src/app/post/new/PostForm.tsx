@@ -67,7 +67,7 @@ export default function PostForm({ userId }: Props) {
 
     try {
       const supabase = createClient()
-      let imageUrls: string[] = []
+      const imageUrls: string[] = []
 
       // Upload images to Supabase Storage
       if (hasImages) {

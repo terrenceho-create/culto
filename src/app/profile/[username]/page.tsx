@@ -155,7 +155,7 @@ export default async function ProfilePage({ params }: Props) {
 
   // Fetch all shares for shared post_ids (for chain building)
   const sharedPostIds = Array.from(new Set(validShares.map((s) => s.post_id)))
-  let chainSharesMap = new Map<string, ChainShareRow>()
+  const chainSharesMap = new Map<string, ChainShareRow>()
 
   if (sharedPostIds.length > 0) {
     const { data: chainSharesRaw } = await (supabase

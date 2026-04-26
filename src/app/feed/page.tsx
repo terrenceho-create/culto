@@ -112,7 +112,7 @@ export default async function FeedPage() {
 
   // Fetch all shares for the posts we got (needed to reconstruct chains)
   const sharedPostIds = Array.from(new Set(validShares.map((s) => s.post_id)))
-  let chainSharesMap = new Map<string, ChainShareRow>()
+  const chainSharesMap = new Map<string, ChainShareRow>()
 
   if (sharedPostIds.length > 0) {
     const { data: chainSharesRaw } = await (supabase

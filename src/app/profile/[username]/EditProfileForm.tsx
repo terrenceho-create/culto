@@ -27,7 +27,7 @@ export default function EditProfileForm({ userId, initialData, onCancel }: Props
   const [tags, setTags] = useState<string[]>(initialData.tags)
   const [tagInput, setTagInput] = useState('')
   const [showInvitedBy, setShowInvitedBy] = useState(initialData.show_invited_by)
-  const [avatarUrl, setAvatarUrl] = useState(initialData.avatar_url)
+  const avatarUrl = initialData.avatar_url
   const [avatarFile, setAvatarFile] = useState<File | null>(null)
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
